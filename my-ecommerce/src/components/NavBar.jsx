@@ -13,6 +13,9 @@ function NavBar(){
     return(
         <>
          <NavContainer>
+            <div className='icono'>
+             <ion-icon name="cart-outline"></ion-icon>
+            </div>
             <h2>my<span>Ecommerce</span></h2>
             <div className={`links ${clicked ? 'active' : ''}`}>
                 <a onCLick={handleClick} href="/"> Home</a>
@@ -39,6 +42,10 @@ const NavContainer = styled.nav `
             font-weight: bold;
             color: cyan;
         }
+    }
+    .icono{
+        font-size: 32px;
+        color: white;
     }
     padding: 1rem;
     background-color: #333;
