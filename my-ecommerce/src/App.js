@@ -1,14 +1,13 @@
 import './App.css';
 import NavBar from './components/NavBar'
-import Function from './components/Function';
-import Class from './components/Class';
-import List from './components/Lists';
+import ItemListContainer from './components/ItemListContainer';
 
 
 function App (){
   return(
     <>
     <NavBar></NavBar>
+    <ItemListContainer gretting = {'Bienvenidos a "myEcommerce"'}></ItemListContainer>
     </>
   );
 }
