@@ -4,22 +4,15 @@ import CartWidget from './CartWidget';
 
 
 function NavBar(){
-
-    const [clicked, setClicked] = useState (false)
-    const handleClick = () => {
-        // cuando es true lo pasa a false y al reves
-        setClicked(!clicked)
-    }
     return(
         <>
          <NavContainer>
          <CartWidget/>
             <h2>my<span>Ecommerce</span></h2>
-            <div className={`links ${clicked ? 'active' : ''}`}>
-                <a onCLick={handleClick} href="/"> Home</a>
-                <a onCLick={handleClick} href="/"> Tienda</a>
-                <a onCLick={handleClick} href="/"> Nosotros</a>
-                <a onCLick={handleClick} href="/"> Contacto</a>
+            <div>
+                <a href="/"> Home</a>
+                <a href="/tienda"> Tienda</a>
+                <a href="/contacto"> Contacto</a>
             </div>
          </NavContainer>
         </>

@@ -1,29 +1,34 @@
-import styled from 'styled-components'
+import React, {useState, useEffect} from 'react';
+import {StockProductos} from '../myproducts/products';
+import ItemList from './ItemList';
+import { Container } from '@mui/material';
 
 function ItemListContainer(props){
+
+    const[productos, setProducts] = useState ([])
+
+    const getProducts = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout (() =>{
+                return resolve(StockProductos);
+            }, 5000);
+        })
+    }
+
+    useEffect( () =>{
+    getProducts().then( (res) =>{
+        setProducts(res)
+    }).finally( () =>{
+        console.log("MIS PRODUCTOS")
+    })
+    }, [])
+
     return(
-        <ItemList>
-            <div className='title-container'>
-                <h1 className='title'> {props.gretting} </h1>
-            </div>
-        </ItemList>
+        <Container>
+            {props.gretting}
+            <ItemList items={productos}></ItemList>
+        </Container>
     )
 }
 
-export default ItemListContainer
-
-const ItemList = styled.div `
-display:flex;
-justify-content: center;
-.title-container{
-    margin-top: 0.5rem;
-    padding: 10px;
-    .title{
-    }&:hover{
-        color: white;
-        background-color: #0288d1;
-        transition: background-color 2s, color 2s;
-        }
-    }
-}
-`
+export default ItemListContainer;
